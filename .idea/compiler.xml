@@ -7,6 +7,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="revature-spring-core" />
+        <module name="spring-demo" />
       </profile>
     </annotationProcessing>
   </component>

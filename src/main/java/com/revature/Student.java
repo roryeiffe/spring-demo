@@ -1,40 +1,38 @@
 package com.revature;
 
-public class Student {
-    private int studentId;
-    private String studentName;
-    private String studentEmail;
+import org.springframework.beans.factory.DisposableBean;
+import org.springframework.beans.factory.InitializingBean;
 
-    public int getStudentId() {
-        return studentId;
+public class Student implements InitializingBean, DisposableBean {
+
+    private String name;
+
+    public Student() {
+        super();
     }
 
-    public void setStudentId(int studentId) {
-        this.studentId = studentId;
+    public String getName() {
+        return name;
     }
 
-    public String getStudentName() {
-        return studentName;
-    }
-
-    public void setStudentName(String studentName) {
-        this.studentName = studentName;
-    }
-
-    public String getStudentEmail() {
-        return studentEmail;
-    }
-
-    public void setStudentEmail(String studentEmail) {
-        this.studentEmail = studentEmail;
+    public void setName(String name) {
+        this.name = name;
     }
 
     @Override
     public String toString() {
         return "Student{" +
-                "studentId=" + studentId +
-                ", studentName='" + studentName + '\'' +
-                ", studentEmail='" + studentEmail + '\'' +
+                "name='" + name + '\'' +
                 '}';
+    }
+
+    @Override
+    public void destroy() throws Exception {
+        System.out.println("Destorying student bean");
+    }
+
+    @Override
+    public void afterPropertiesSet() throws Exception {
+        System.out.println("Init student called");
     }
 }
