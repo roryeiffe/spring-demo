@@ -1,40 +1,29 @@
 package com.revature;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 public class Student {
-    private int studentId;
-    private String studentName;
-    private String studentEmail;
+    private Course course;
 
-    public int getStudentId() {
-        return studentId;
+    public Student(Course course) {
+        this.course = course;
+        System.out.println("constructor");
     }
 
-    public void setStudentId(int studentId) {
-        this.studentId = studentId;
+    public Course getCourse() {
+        return course;
     }
 
-    public String getStudentName() {
-        return studentName;
-    }
-
-    public void setStudentName(String studentName) {
-        this.studentName = studentName;
-    }
-
-    public String getStudentEmail() {
-        return studentEmail;
-    }
-
-    public void setStudentEmail(String studentEmail) {
-        this.studentEmail = studentEmail;
+    @Autowired
+    public void setCourse(Course course) {
+        this.course = course;
+        System.out.println("setter");
     }
 
     @Override
     public String toString() {
         return "Student{" +
-                "studentId=" + studentId +
-                ", studentName='" + studentName + '\'' +
-                ", studentEmail='" + studentEmail + '\'' +
+                "course=" + course +
                 '}';
     }
 }
