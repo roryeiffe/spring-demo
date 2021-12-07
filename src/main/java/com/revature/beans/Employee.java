@@ -1,9 +1,11 @@
 package com.revature.beans;
 
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 @Component("emp")
+@Scope("prototype")
 public class Employee {
     @Value("101")
     private int id;

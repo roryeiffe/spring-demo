@@ -3,11 +3,8 @@ package com.revature.beans;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
-@Component
 public class Student {
-    @Value("201")
     private int id;
-    @Value("Paul")
     private String name;
 
     public int getId() {

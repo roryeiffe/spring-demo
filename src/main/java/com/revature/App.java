@@ -2,7 +2,6 @@ package com.revature;
 
 import com.revature.beans.Employee;
 import com.revature.beans.Student;
-import com.revature.beans.User;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -18,15 +17,16 @@ public class App
         ApplicationContext context = new ClassPathXmlApplicationContext("config.xml");
 
         Employee employee = context.getBean("emp", Employee.class);
-        System.out.println(employee);
+        System.out.println(employee.hashCode());
 
-        Student student = context.getBean("student", Student.class);
-        System.out.println(student);
+        Employee employee2 = context.getBean("emp",Employee.class);
+        System.out.println(employee2.hashCode());
 
-        // no bean named user available
-        User user = context.getBean("user",User.class);
-        System.out.println(user);
+        Student student = context.getBean("student1",Student.class);
+        System.out.println(student.hashCode());
 
+        Student student1 = context.getBean("student1",Student.class);
+        System.out.println(student1.hashCode());
 
 
 
